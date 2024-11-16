@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gestor</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <ul>
+            <li class="item">
+                <a href="#">
+                    <i class="bi bi-house"></i> Home
+                </a>
+            </li>
+            <li class="item">
+                <a href="#">
+                    <i class="bi bi-columns-gap"></i> Dashboard
+                </a>
+            </li>
+            <li class="item">
+                <a href="#">
+                    <i class="bi bi-calendar-check"></i> Agenda
+                </a>
+            </li>
+            <li class="item">
+                <a href="#">
+                    <i class="bi bi-gear"></i> Configurações
+                </a>
+            </li>
+            <li class="item">
+                <a href="#">
+                    <i class="bi bi-person-circle"></i> Perfil
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <header>
+            <h1>Bem-vindo, Gestor!</h1>
+            <div class="nav-top-right">
+                <a href="#">Usuários</a>
+                <a href="#">Histórico</a>
+                <a href="#">Informações</a>
+            </div>
+        </header>
+
+        <section class="dashboard">
+            <div class="stats">
+                <div class="stat-card">
+                    <i class="bi bi-people-fill"></i>
+                    <h2>Pacientes</h2>
+                    <p>Total: 150</p>
+                </div>
+                <div class="stat-card">
+                    <i class="bi bi-journal-medical"></i>
+                    <h2>Consultas</h2>
+                    <p>Este mês: 45</p>
+                </div>
+                <div class="stat-card">
+                    <i class="bi bi-person-workspace"></i>
+                    <h2>Médicos</h2>
+                    <p>Ativos: 10</p>
+                </div>
+            </div>
+
+            <div class="details">
+                <div class="recent-appointments">
+                    <h2>Consultas Recentes</h2>
+                    <ul>
+                        <li>João Silva - 10/11/2024</li>
+                        <li>Maria Oliveira - 09/11/2024</li>
+                        <li>Carlos Santos - 08/11/2024</li>
+                    </ul>
+                </div>
+                <div class="tasks">
+                    <h2>Tarefas Pendentes</h2>
+                    <ul>
+                        <li>Atualizar dados de 5 pacientes</li>
+                        <li>Verificar nova solicitação de acesso</li>
+                        <li>Confirmar agendamento de consultas</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
