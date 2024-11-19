@@ -6,7 +6,7 @@
     <title>Home - Gestor</title>
     <link rel="stylesheet" href="homeG.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+</head>
 <body>
     <nav class="sidebar">
         <ul>
@@ -37,55 +37,53 @@
             </li>
         </ul>
     </nav>
-    
-        <header class="header">
+
+    <div class="content">
+        <header>
             <h1>Bem-vindo, Gestor!</h1>
-            <nav class="top-nav">
+            <div class="top-nav-right">
                 <a href="#">Usuários</a>
                 <a href="#">Informações</a>
                 <a href="#">Histórico</a>
-            </nav>
-        </header>
-    
-        <main class="dashboard">
-            
+            </div>
+        </header>   
             <section class="summary">
+                <div class="stats">
                 <div class="card">
                     <h2>Pacientes Registrados:</h2>
                     <p>120</p>
                 </div>
                 <div class="card">
-                    <h2>Atendimentos do Mês:</h2>
+                    <h2>Consultas de Hoje:</h2>
                     <p>45</p>
                 </div>
                 <div class="card">
                     <h2>Profissionais Ativos:</h2>
                     <p>8</p>
                 </div>
-            </section>
+            </div>
     
-            <section class="notifications">
-                <h2>Notificações:</h2>
+            <div class="notifications">
+                <div class="recent-appointments">
+                <h2>Notificações Recentes:</h2>
                 <ul>
                     <li>Novo paciente cadastrado: João Silva</li>
                     <li>Consulta agendada para 12/11</li>
                     <li>Atualização de prontuário de Maria Santos</li>
                 </ul>
-            </section>
+                </div>
     
-            <section class="charts">
-                <h2>Estatísticas</h2>
-                <div class="chart">
-                    <p>Gráfico de Atendimentos</p>
+                <div class="charts">
+                    <h2>Gráfico de Pacientes por Semana:</h2>
+                    <p>[Espaço reservado para o gráfico]</p>
                 </div>
                 <div class="chart">
-                    <p>Distribuição de Pacientes</p>
+                    <h2>Gráfico de Consultas Realizadas</h2>
+                    <p>[Espaço reservado para o gráfico]</p>
+                </div>
                 </div>
             </section>
-        </main>
+        </div>
     </body>
-    </html>
+ </html>
     
-    <script src="homeG.js"></script>
-</body>
-</html>
