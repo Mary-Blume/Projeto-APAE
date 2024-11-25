@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil</title>
+  <link rel="stylesheet" href="perfilG.css">
+</head>
+<body>
+  <div class="container">
+
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="home.html"><i class="icon">🏠</i>Home</a></li>
+          <li><a href="dashboard.html"><i class="icon">📊</i>Dashboard</a></li>
+          <li><a href="agenda.html"><i class="icon">📅</i>Agenda</a></li>
+          <li><a href="configuracoes.html"><i class="icon">⚙️</i>Configurações</a></li>
+          <li class="active"><a href="perfil.html"><i class="icon">👤</i>Perfil</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h1>Perfil do Usuário</h1>
+      <form class="perfil-form">
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
+        </div>
+        <div class="form-group">
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone">
+        </div>
+        <div class="form-group">
+          <label for="senha">Nova Senha:</label>
+          <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha">
+        </div>
+        <div class="form-group">
+          <label for="confirmar-senha">Confirmar Senha:</label>
+          <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Confirme sua nova senha">
+        </div>
+        <button type="submit" class="btn salvar-btn">Salvar Alterações</button>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

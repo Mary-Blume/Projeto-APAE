@@ -3,22 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Configurações - Gestor</title>
+    <link rel="stylesheet" href="confG.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
 <body>
-    
-<header>
-    <nav class="top-bar">
-        <h1>Configurações</h1>
+    <nav class="sidebar">
+        <ul>
+            <li class="item">
+                <a href="homeG.html">
+                    <i class="bi bi-house"></i> Home
+                </a>
+            </li>
+            <li class="item">
+                <a href="dashboardG.html">
+                    <i class="bi bi-columns-gap"></i> Dashboard
+                </a>
+            </li>
+            <li class="item">
+                <a href="agendaG.html">
+                    <i class="bi bi-calendar-check"></i> Agenda
+                </a>
+            </li>
+            <li class="item">
+                <a href="confG.html">
+                    <i class="bi bi-gear"></i> Configurações
+                </a>
+            </li>
+            <li class="item">
+                <a href="perfilG.html">
+                    <i class="bi bi-person-circle"></i> Perfil
+                </a>
+            </li>
+        </ul>
     </nav>
-</header>
-<main>
-    <div class="container">
+
+    <div class="content">
+        <header>
+            <h1>Configurações da Conta</h1>
+        </header>
         <section class="account-settings">
-            <h2>Configurações da Conta</h2>
             <form action="#">
                 <label for="username">Nome de Usuário:</label>
                 <input type="text" id="username" placeholder="Digite seu nome de usuário">
@@ -37,7 +62,7 @@
         </section>
 
         <section class="preferences">
-            <h2>Preferências</h2>
+            <h2>Preferências:</h2>
             <form action="#">
                 <label>
                     <input type="checkbox" name="notifications">
@@ -49,10 +74,12 @@
                     Modo Escuro
                 </label>
 
-                <button type="submit">Salvar Preferências</button>
+                <button type="submit">Salvar</button>
             </form>
         </section>
     </div>
-  </main>
+
+
+    
 </body>
 </html>
