@@ -1,13 +1,18 @@
-/* Estilo geral */
+
 body {
     background-color: rgb(0, 111, 175);
+    color: rgb(33, 33, 33);
     margin: 0;
-    font-family: Arial, sans-serif;
-    color: #333;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-/* Sidebar */
 .sidebar {
+    border-right: 2px solid #000; 
+    padding: 20px 0;
     width: 200px;
     background-color: #fff;
     color: #000;
@@ -16,6 +21,9 @@ body {
     top: 0;
     left: 0;
     padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sidebar ul {
@@ -24,35 +32,39 @@ body {
 }
 
 .sidebar ul li {
-    padding: 20px 0;
+    padding: 40px 0;
     text-align: center;
 }
 
 .sidebar ul li a {
     color: #000;
     text-decoration: none;
-    display: flex;
+    font-weight: bold;
+    border: 2px solid #000;
+    padding: 5px;
+    display: block;
     align-items: center;
-    justify-content: center;
-    font-size: 16px;
+    border-radius: 5px; 
+    background-color: #fff;
+    margin-right: 20px;
+    
 }
 
 .sidebar ul li.active a {
-    font-weight: bold;
     color: #1a73e8;
 }
 
 .sidebar ul li a i {
+    font-size: 24px;
     margin-right: 5px;
+    color: #000;
 }
 
-/* Conteúdo */
 .content {
     margin-left: 220px;
     padding: 20px;
 }
 
-/* Cabeçalho */
 header {
     display: flex;
     justify-content: space-between;
@@ -142,4 +154,63 @@ header h1 {
 
 .btn-delete:hover {
     background-color: #e53935;
+}
+.calendar-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.calendar-header button {
+    background-color: #0074B7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.calendar-header button:hover {
+    background-color: #005a8d;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    width: 14%;
+    height: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #0074B7;
+    color: #fff;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+td:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
 }

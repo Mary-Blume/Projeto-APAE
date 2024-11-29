@@ -1,6 +1,41 @@
 body{
     background-color: rgb( 0, 111, 175);
+    color: rgb(33, 33, 33);
+    transition: background-color 0.3s, color 0.3s;
 }
+body.dark-mode {
+    background-color: rgb(33, 33, 33);
+    color: rgb(240, 240, 240);
+    transition: background-color 0.3s, color 0.3s;
+}
+body.dark-mode .sidebar {
+    background-color: rgb(55, 55, 55);
+    color: black; 
+}
+body.dark-mode .sidebar ul li a {
+    color: black;
+    background-color: rgb(240, 240, 240);
+    border: 2px solid black; 
+}
+body.dark-mode header h1 {
+    color: black;
+}
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+    font-weight: bold; 
+    color: white; 
+}
+
+body.dark-mode .card, 
+body.dark-mode .notifications, 
+body.dark-mode .recent-appointments, 
+body.dark-mode .charts {
+    background-color: rgb(33, 33, 33); 
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
 .sidebar {
     border-right: 2px solid #000; 
     padding: 20px 0;
@@ -39,6 +74,7 @@ body{
     border-radius: 5px; 
     background-color: #fff;
     margin-right: 20px;
+    
 }
 
 .sidebar ul li a i {

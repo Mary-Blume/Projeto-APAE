@@ -1,63 +1,108 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+    background-color: rgb( 0, 111, 175);
+}
+/* Modo Escuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
 }
 
-.container {
-  display: flex;
+.dark-mode .sidebar {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode .sidebar ul li a {
+  color: #ffffff;
+}
+
+.dark-mode header {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode .card, .dark-mode .notifications {
+  background-color: #292929;
+  color: #ffffff;
 }
 
 .sidebar {
-  width: 250px;
-  background-color: #000000; 
-  color: #fff;
-  height: 100vh;
-  padding: 20px;
+    border-right: 2px solid #000; 
+    padding: 20px 0;
+    width: 200px;
+    background-color: #fff;
+    color: #000;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sidebar ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+
 }
 
 .sidebar ul li {
-  margin: 20px 0;
+  padding: 40px 0;
+  text-align: center;
 }
 
 .sidebar ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.1rem;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #000;
+    padding: 5px;
+    display: block;
+    align-items: center;
+    border-radius: 5px; 
+    background-color: #fff;
+    margin-right: 20px;
+}
+
+.sidebar ul li a i{
+    font-size: 24px;
+    margin-right: 5px;
+    color: #000;
+}
+
+.content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+header{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 0 auto; 
+    width: 555px; 
+    text-align: center;
+}
+
+header h1{
+    font-size: 24px;
+    margin: 0;
+}
+form {
   display: flex;
-  align-items: center;
-}
-
-.sidebar ul li a .icon {
-  margin-right: 10px;
-}
-
-.sidebar ul li.active a {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.main-content {
-  flex-grow: 1;
-  padding: 20px;
-  background-color: #ffffff;
-}
-
-.main-content h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .perfil-form {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .form-group {
@@ -71,12 +116,13 @@ label {
 }
 
 input {
-  width: 100%;
+
   padding: 10px;
   border: 2px solid #000000; 
   border-radius: 5px;
   font-size: 1rem;
   background-color: #f9f9f9;
+  width: 96%;
 }
 
 input:focus {
@@ -85,15 +131,18 @@ input:focus {
 }
 
 .btn {
-  background-color: #007bff; 
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
+    padding: 10px;
+    background-color: gray;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%; 
+    margin-top: 10px;
+    
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #000;
 }

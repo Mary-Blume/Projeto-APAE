@@ -1,69 +1,120 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-.top-bar {
-    background-color: #000;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    font-size: 1.5rem;
+    background-color: rgb( 0, 111, 175);
 }
 
-/* Conteúdo principal */
-.container {
-    max-width: 800px;
-    margin: 20px auto;
+.sidebar {
+    border-right: 2px solid #000; 
+    padding: 20px 0;
+    width: 200px;
     background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-/* Estilo dos formulários */
-form {
+    color: #000;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
-form label {
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+
+}
+
+.sidebar ul li {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.sidebar ul li a {
+    color: #000;
+    text-decoration: none;
     font-weight: bold;
-}
-
-form input {
-    padding: 10px;
     border: 2px solid #000;
-    border-radius: 4px;
+    padding: 5px;
+    display: block;
+    align-items: center;
+    border-radius: 5px; 
+    background-color: #fff;
+    margin-right: 20px;
 }
 
-form button {
+.sidebar ul li a i{
+    font-size: 24px;
+    margin-right: 5px;
+    color: #000;
+}
+
+.content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+header {
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    width: 600px; /* Define a mesma largura do formulário */
+    text-align: center; /* Centraliza o texto dentro do cabeçalho */
+}
+
+header h1{
+    font-size: 24px;
+    margin: 0;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.perfil-form {
+    max-width: 600px;
+    margin: 20px auto; /* Adiciona espaçamento superior/inferior */
+    text-align: left; /* Mantém o alinhamento à esquerda dentro do formulário */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
     padding: 10px;
-    background-color: #007bff;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    width: 100%; /* Alinha a largura com os botões e cabeçalho */
+}
+
+input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.btn {
+    padding: 10px;
+    background-color: gray;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
+    width: 100%; /* Ocupa toda a largura do formulário */
+    margin: 0 auto; /* Garante centralização caso necessário */
+    display: block; /* Garante consistência de layout */
 }
-
-form button:hover {
-    background-color: #0056b3;
-}
-
-/* Títulos das seções */
-h2 {
-    margin-top: 0;
-    color: #333;
-    font-size: 1.2rem;
-}
-
-/* Preferências */
-.preferences form label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: normal;
+.btn:hover {
+    background-color: #000;
 }

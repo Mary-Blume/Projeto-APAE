@@ -11,27 +11,27 @@
     <nav class="sidebar">
         <ul>
             <li class="item">
-                <a href="#">
+                <a href="homeG.html">
                     <i class="bi bi-house"></i> Home
                 </a>
             </li>
             <li class="item">
-                <a href="#">
+                <a href="dashboardG.html">
                     <i class="bi bi-columns-gap"></i> Dashboard
                 </a>
             </li>
             <li class="item active">
-                <a href="#">
+                <a href="agendaG.html">
                     <i class="bi bi-calendar-check"></i> Agenda
                 </a>
             </li>
             <li class="item">
-                <a href="#">
+                <a href="confG.html">
                     <i class="bi bi-gear"></i> Configurações
                 </a>
             </li>
             <li class="item">
-                <a href="#">
+                <a href="perfilG.html">
                     <i class="bi bi-person-circle"></i> Perfil
                 </a>
             </li>
@@ -40,50 +40,98 @@
 
     <div class="content">
         <header>
-            <h1>Agenda de Consultas</h1>
+            <h1>Agenda</h1>
             <div class="top-nav-right">
                 <a href="#">Adicionar Evento</a>
                 <a href="#">Visualizar Histórico</a>
             </div>
         </header>
-
-        <main class="agenda">
-            <h2>Consultas Agendadas</h2>
-            <table class="agenda-table">
-                <thead>
-                    <tr>
-                        <th>Data</th>
-                        <th>Horário</th>
-                        <th>Paciente</th>
-                        <th>Profissional</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>21/11/2024</td>
-                        <td>09:00</td>
-                        <td>João Silva</td>
-                        <td>Dr. Carlos</td>
-                        <td>
-                            <button class="btn-view">Ver</button>
-                            <button class="btn-delete">Cancelar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>21/11/2024</td>
-                        <td>10:30</td>
-                        <td>Maria Santos</td>
-                        <td>Dra. Ana</td>
-                        <td>
-                            <button class="btn-view">Ver</button>
-                            <button class="btn-delete">Cancelar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </main>
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prev-month">&#8592;</button>
+                <h2 id="month-year"></h2>
+                <button id="next-month">&#8594;</button>
+            </div>
+            <div class="calendar">
+                <div class="days-of-week">
+                    <div>Dom</div>
+                    <div>Seg</div>
+                    <div>Ter</div>
+                    <div>Qua</div>
+                    <div>Qui</div>
+                    <div>Sex</div>
+                    <div>Sáb</div>
+                </div>
+                <div class="days" id="calendar-days"></div>
+            </div>
+        </div>
     </div>
+    <script>
+        const monthYear = document.getElementById('month-year');
+        const calendarDays = document.getElementById('calendar-days');
+        const prevMonthButton = document.getElementById('prev-month');
+        const nextMonthButton = document.getElementById('next-month');
 
+        const today = new Date();
+        let currentMonth = today.getMonth();
+        let currentYear = today.getFullYear();
+
+        const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+        function renderCalendar() {
+            const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+            const lastDateOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const lastDayOfLastMonth = new Date(currentYear, currentMonth, 0).getDate();
+
+            calendarDays.innerHTML = '';
+            monthYear.textContent = `${months[currentMonth]} ${currentYear}`;
+
+            for (let i = firstDayOfMonth; i > 0; i--) {
+                const day = document.createElement('div');
+                day.classList.add('prev-month');
+                day.textContent = lastDayOfLastMonth - i + 1;
+                calendarDays.appendChild(day);
+            }
+
+            for (let i = 1; i <= lastDateOfMonth; i++) {
+                const day = document.createElement('div');
+                day.classList.add('current-month');
+                if (i === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()) {
+                    day.classList.add('today');
+                }
+                day.textContent = i;
+                calendarDays.appendChild(day);
+            }
+
+            const totalCells = calendarDays.childNodes.length;
+            const nextDays = 42 - totalCells; 
+            for (let i = 1; i <= nextDays; i++) {
+                const day = document.createElement('div');
+                day.classList.add('next-month');
+                day.textContent = i;
+                calendarDays.appendChild(day);
+            }
+        }
+
+        prevMonthButton.addEventListener('click', () => {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            renderCalendar();
+        });
+
+        nextMonthButton.addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            renderCalendar();
+        });
+
+        renderCalendar();
+    </script>
 </body>
 </html>

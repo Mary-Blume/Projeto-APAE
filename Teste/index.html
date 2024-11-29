@@ -1,58 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Agenda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0074B7;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
+        .calendar-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-header button {
+            background-color: #0074B7;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .calendar-header button:hover {
+            background-color: #005a8d;
+        }
+
+        .calendar-header h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            width: 14%;
+            height: 50px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0074B7;
+            color: #fff;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        td:hover {
+            background-color: #e0e0e0;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    
-<header>
-    <nav class="top-bar">
-        <h1>Configurações</h1>
-    </nav>
-</header>
-<main>
-    <div class="container">
-        <section class="account-settings">
-            <h2>Configurações da Conta</h2>
-            <form action="#">
-                <label for="username">Nome de Usuário:</label>
-                <input type="text" id="username" placeholder="Digite seu nome de usuário">
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <button onclick="previousMonth()">&#8249;</button>
+            <h2 id="monthYear">Novembro 2024</h2>
+            <button onclick="nextMonth()">&#8250;</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dom</th>
+                    <th>Seg</th>
+                    <th>Ter</th>
+                    <th>Qua</th>
+                    <th>Qui</th>
+                    <th>Sex</th>
+                    <th>Sáb</th>
+                </tr>
+            </thead>
+            <tbody id="calendarBody">
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Digite seu email">
-
-                <label for="password">Nova Senha:</label>
-                <input type="password" id="password" placeholder="Digite sua nova senha">
-
-                <label for="confirm-password">Confirmar Nova Senha:</label>
-                <input type="password" id="confirm-password" placeholder="Confirme sua nova senha">
-
-                <button type="submit">Salvar Alterações</button>
-            </form>
-        </section>
-
-        <section class="preferences">
-            <h2>Preferências</h2>
-            <form action="#">
-                <label>
-                    <input type="checkbox" name="notifications">
-                    Ativar Notificações
-                </label>
-
-                <label>
-                    <input type="checkbox" name="darkmode">
-                    Modo Escuro
-                </label>
-
-                <button type="submit">Salvar Preferências</button>
-            </form>
-        </section>
+            </tbody>
+        </table>
     </div>
-  </main>
+
+    <script>
+        const monthYearElement = document.getElementById("monthYear");
+        const calendarBody = document.getElementById("calendarBody");
+
+        let currentDate = new Date();
+
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            monthYearElement.textContent = currentDate.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+
+           
+            const firstDay = new Date(year, month, 1).getDay();
+
+            const lastDate = new Date(year, month + 1, 0).getDate();
+
+            calendarBody.innerHTML = "";
+
+            let row = document.createElement("tr");
+
+            for (let i = 0; i < firstDay; i++) {
+                const cell = document.createElement("td");
+                row.appendChild(cell);
+            }
+
+            for (let date = 1; date <= lastDate; date++) {
+                if (row.children.length === 7) {
+                    calendarBody.appendChild(row);
+                    row = document.createElement("tr");
+                }
+
+                const cell = document.createElement("td");
+                cell.textContent = date;
+                row.appendChild(cell);
+            }
+
+            if (row.children.length > 0) {
+                calendarBody.appendChild(row);
+            }
+        }
+
+        function previousMonth() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        }
+
+        function nextMonth() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        }
+
+        renderCalendar();
+    </script>
 </body>
 </html>

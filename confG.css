@@ -1,6 +1,22 @@
-/* Configurações gerais */
+
 body {
     background-color: rgb( 0, 111, 175);
+    color: rgb(0, 0, 0);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: rgb(33, 33, 33);
+    color: rgb(240, 240, 240);
+}
+
+body.dark-mode .sidebar {
+    background-color: rgb(55, 55, 55);
+    color: rgb(200, 200, 200);
+}
+
+body.dark-mode header h1 {
+    color: black;
 }
 .sidebar {
     border-right: 2px solid #000; 
