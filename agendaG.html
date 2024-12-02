@@ -20,7 +20,7 @@
                     <i class="bi bi-columns-gap"></i> Dashboard
                 </a>
             </li>
-            <li class="item active">
+            <li class="item">
                 <a href="agendaG.html">
                     <i class="bi bi-calendar-check"></i> Agenda
                 </a>
@@ -39,99 +39,39 @@
     </nav>
 
     <div class="content">
-        <header>
-            <h1>Agenda</h1>
-            <div class="top-nav-right">
-                <a href="#">Adicionar Evento</a>
-                <a href="#">Visualizar Histórico</a>
-            </div>
-        </header>
-        <div class="calendar-container">
+        <div class="calendar">
             <div class="calendar-header">
-                <button id="prev-month">&#8592;</button>
-                <h2 id="month-year"></h2>
-                <button id="next-month">&#8594;</button>
+                <button id="prevMonth">&#8592;</button>
+                <h2 id="monthYear">Novembro 2024</h2>
+                <button id="nextMonth">&#8594;</button>
             </div>
-            <div class="calendar">
-                <div class="days-of-week">
-                    <div>Dom</div>
-                    <div>Seg</div>
-                    <div>Ter</div>
-                    <div>Qua</div>
-                    <div>Qui</div>
-                    <div>Sex</div>
-                    <div>Sáb</div>
-                </div>
-                <div class="days" id="calendar-days"></div>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dom</th>
+                        <th>Seg</th>
+                        <th>Ter</th>
+                        <th>Qua</th>
+                        <th>Qui</th>
+                        <th>Sex</th>
+                        <th>Sáb</th>
+                    </tr>
+                </thead>
+                <tbody id="calendarBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="event-form">
+            <h3>Adicionar Evento</h3>
+            <input type="number" id="eventDay" placeholder="Dia" min="1" max="31">
+            <input type="text" id="eventDescription" placeholder="Descrição do evento">
+            <button id="addEventButton">Adicionar Evento</button>
+            <div class="message" id="eventMessage">Evento adicionado com sucesso!</div>
         </div>
     </div>
-    <script>
-        const monthYear = document.getElementById('month-year');
-        const calendarDays = document.getElementById('calendar-days');
-        const prevMonthButton = document.getElementById('prev-month');
-        const nextMonthButton = document.getElementById('next-month');
 
-        const today = new Date();
-        let currentMonth = today.getMonth();
-        let currentYear = today.getFullYear();
-
-        const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-
-        function renderCalendar() {
-            const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
-            const lastDateOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-            const lastDayOfLastMonth = new Date(currentYear, currentMonth, 0).getDate();
-
-            calendarDays.innerHTML = '';
-            monthYear.textContent = `${months[currentMonth]} ${currentYear}`;
-
-            for (let i = firstDayOfMonth; i > 0; i--) {
-                const day = document.createElement('div');
-                day.classList.add('prev-month');
-                day.textContent = lastDayOfLastMonth - i + 1;
-                calendarDays.appendChild(day);
-            }
-
-            for (let i = 1; i <= lastDateOfMonth; i++) {
-                const day = document.createElement('div');
-                day.classList.add('current-month');
-                if (i === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()) {
-                    day.classList.add('today');
-                }
-                day.textContent = i;
-                calendarDays.appendChild(day);
-            }
-
-            const totalCells = calendarDays.childNodes.length;
-            const nextDays = 42 - totalCells; 
-            for (let i = 1; i <= nextDays; i++) {
-                const day = document.createElement('div');
-                day.classList.add('next-month');
-                day.textContent = i;
-                calendarDays.appendChild(day);
-            }
-        }
-
-        prevMonthButton.addEventListener('click', () => {
-            currentMonth--;
-            if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            }
-            renderCalendar();
-        });
-
-        nextMonthButton.addEventListener('click', () => {
-            currentMonth++;
-            if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            }
-            renderCalendar();
-        });
-
-        renderCalendar();
+    <script src="agendaG.js">
     </script>
 </body>
 </html>
